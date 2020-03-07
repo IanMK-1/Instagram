@@ -55,3 +55,8 @@ class ProfileTestClass(TestCase):
 
     def tearDown(self) -> None:
         Profile.objects.all().delete()
+
+    def test_save_user_profile(self):
+        self.new_profile.save_user_profile()
+        profiles = Profile.objects.all()
+        self.assertTrue(len(profiles) > 0)
