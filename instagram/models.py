@@ -12,6 +12,12 @@ class Profile(models.Model):
     def __str__(self):
         return self.bio
 
+    def save_user_profile(self):
+        self.save()
+
+    def delete_user_profile(self):
+        self.delete()
+
 
 class Image(models.Model):
     image = CloudinaryField('image', null=True)
