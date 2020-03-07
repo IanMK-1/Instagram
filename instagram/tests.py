@@ -60,3 +60,9 @@ class ProfileTestClass(TestCase):
         self.new_profile.save_user_profile()
         profiles = Profile.objects.all()
         self.assertTrue(len(profiles) > 0)
+
+    def test_delete_user_profile(self):
+        self.new_profile.save_user_profile()
+        self.new_profile.delete_user_profile()
+        profiles = Profile.objects.all()
+        self.assertTrue(len(profiles) == 0)
