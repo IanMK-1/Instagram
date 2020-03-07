@@ -2,30 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="75f274cb-9f8e-4700-8bc0-b07c12a9a8ab" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/virtual/lib/python3.6/site-packages/bootstrap3/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/virtual/lib/python3.6/site-packages/bootstrap3/_version.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/virtual/lib/python3.6/site-packages/bootstrap3/bootstrap.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/virtual/lib/python3.6/site-packages/bootstrap3/components.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/virtual/lib/python3.6/site-packages/bootstrap3/exceptions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/virtual/lib/python3.6/site-packages/bootstrap3/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/virtual/lib/python3.6/site-packages/bootstrap3/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/virtual/lib/python3.6/site-packages/bootstrap3/renderers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/virtual/lib/python3.6/site-packages/bootstrap3/templates/bootstrap3/bootstrap3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/virtual/lib/python3.6/site-packages/bootstrap3/templates/bootstrap3/field_help_text_and_errors.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/virtual/lib/python3.6/site-packages/bootstrap3/templates/bootstrap3/form_errors.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/virtual/lib/python3.6/site-packages/bootstrap3/templates/bootstrap3/messages.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/virtual/lib/python3.6/site-packages/bootstrap3/templates/bootstrap3/pagination.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/virtual/lib/python3.6/site-packages/bootstrap3/templatetags/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/virtual/lib/python3.6/site-packages/bootstrap3/templatetags/bootstrap3.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/virtual/lib/python3.6/site-packages/bootstrap3/text.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/virtual/lib/python3.6/site-packages/bootstrap3/utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/virtual/lib/python3.6/site-packages/django_bootstrap3-12.0.3.dist-info/AUTHORS.rst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/virtual/lib/python3.6/site-packages/django_bootstrap3-12.0.3.dist-info/INSTALLER" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/virtual/lib/python3.6/site-packages/django_bootstrap3-12.0.3.dist-info/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/virtual/lib/python3.6/site-packages/django_bootstrap3-12.0.3.dist-info/METADATA" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/virtual/lib/python3.6/site-packages/django_bootstrap3-12.0.3.dist-info/RECORD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/virtual/lib/python3.6/site-packages/django_bootstrap3-12.0.3.dist-info/WHEEL" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/virtual/lib/python3.6/site-packages/django_bootstrap3-12.0.3.dist-info/top_level.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/instagram/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/instagram/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
