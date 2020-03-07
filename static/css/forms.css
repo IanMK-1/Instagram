@@ -1,0 +1,12 @@
+.container {
+    font-family: 'Cabin', sans-serif;
+}
+.logo {
+    margin-top: 50%;
+    background-color: transparent;
+    padding: 10px;
+}
+.logo h3 {
+    font-family: 'Lobster', cursive;
+    font-size: 10vh;
+}

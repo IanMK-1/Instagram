@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="75f274cb-9f8e-4700-8bc0-b07c12a9a8ab" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/static/images/insta.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instagram/templates/django_registration/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/instagram/templates/django_registration/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instagram/templates/registration/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/instagram/templates/registration/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/instagram/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/instagram/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/forms.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/forms.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +30,13 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/images" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static/images" />
+    </key>
   </component>
   <component name="SvnConfiguration">
     <configuration />
