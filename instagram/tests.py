@@ -46,3 +46,9 @@ class ImageTestClass(TestCase):
         self.new_image.save_image()
         updated_caption = Image.update_caption(self.new_image.id, 'bad colors')
         self.assertEqual(updated_caption.image_caption, 'bad colors')
+
+
+class ProfileTestClass(TestCase):
+
+    def setUp(self) -> None:
+        self.new_profile = Profile(profile_pic='imk.jpg', bio='hello')
