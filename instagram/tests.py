@@ -30,3 +30,8 @@ class ImageTestClass(TestCase):
         self.assertTrue(isinstance(self.new_image, Image))
         self.assertTrue(isinstance(self.new_profile, Profile))
         self.assertTrue(isinstance(self.new_user, User))
+
+    def test_save_image_method(self):
+        self.new_image.save_image()
+        images = Image.objects.all()
+        self.assertTrue(len(images) > 0)
