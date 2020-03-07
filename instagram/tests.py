@@ -66,3 +66,9 @@ class ProfileTestClass(TestCase):
         self.new_profile.delete_user_profile()
         profiles = Profile.objects.all()
         self.assertTrue(len(profiles) == 0)
+
+    def test_update_profile_bio(self):
+        self.new_profile.save_user_profile()
+        updated_profile = Profile.update_profile_bio(self.new_profile.id, 'bye')
+        self.assertEqual(updated_profile.bio, 'bye')
+
