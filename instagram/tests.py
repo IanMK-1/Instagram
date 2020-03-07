@@ -26,3 +26,7 @@ class ImageTestClass(TestCase):
         User.objects.all().delete()
         Profile.objects.all().delete()
 
+    def test_instance(self):
+        self.assertTrue(isinstance(self.new_image, Image))
+        self.assertTrue(isinstance(self.new_profile, Profile))
+        self.assertTrue(isinstance(self.new_user, User))
