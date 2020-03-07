@@ -18,6 +18,12 @@ class Profile(models.Model):
     def delete_user_profile(self):
         self.delete()
 
+    @classmethod
+    def update_profile_bio(cls, id, bio):
+        cls.objects.filter(id=id).update(bio=bio)
+        updated_profile_bio = cls.objects.get(id=id)
+        return updated_profile_bio
+
 
 class Image(models.Model):
     image = CloudinaryField('image', null=True)
