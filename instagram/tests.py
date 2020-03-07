@@ -52,3 +52,6 @@ class ProfileTestClass(TestCase):
 
     def setUp(self) -> None:
         self.new_profile = Profile(profile_pic='imk.jpg', bio='hello')
+
+    def tearDown(self) -> None:
+        Profile.objects.all().delete()
