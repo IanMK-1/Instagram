@@ -24,6 +24,12 @@ class Profile(models.Model):
         updated_profile_bio = cls.objects.get(id=id)
         return updated_profile_bio
 
+    @classmethod
+    def update_profile_pic(cls, id, profile_pic):
+        cls.objects.filter(id=id).update(profile_pic=profile_pic)
+        updated_profile_pic = cls.objects.get(id=id)
+        return updated_profile_pic
+
 
 class Image(models.Model):
     image = CloudinaryField('image', null=True)
