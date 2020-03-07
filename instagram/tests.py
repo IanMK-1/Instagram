@@ -72,3 +72,7 @@ class ProfileTestClass(TestCase):
         updated_profile = Profile.update_profile_bio(self.new_profile.id, 'bye')
         self.assertEqual(updated_profile.bio, 'bye')
 
+    def test_update_profile_pic(self):
+        self.new_profile.save_user_profile()
+        updated_profile = Profile.update_profile_pic(self.new_profile.id, 'gp.jpg')
+        self.assertTrue(updated_profile.profile_pic != self.new_profile.profile_pic)
