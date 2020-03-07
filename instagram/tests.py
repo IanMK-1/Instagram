@@ -41,3 +41,8 @@ class ImageTestClass(TestCase):
         self.new_image.delete_image()
         images = Image.objects.all()
         self.assertTrue(len(images) == 0)
+
+    def test_update_caption(self):
+        self.new_image.save_image()
+        updated_caption = Image.update_caption(self.new_image.id, 'bad colors')
+        self.assertEqual(updated_caption.image_caption, 'bad colors')
