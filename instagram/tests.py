@@ -20,3 +20,9 @@ class ImageTestClass(TestCase):
         self.new_image = Image(image='color.jpg', image_name='colors', image_caption='beautiful colors', likes=1,
                                dislikes=0, comments='i like it', profile=self.new_profile)
         self.new_image.save()
+
+    def tearDown(self) -> None:
+        Image.objects.all().delete()
+        User.objects.all().delete()
+        Profile.objects.all().delete()
+
