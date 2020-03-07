@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import cloudinary
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,6 +26,12 @@ SECRET_KEY = '3z1+9!4(%$xcmwhq+i$67)q^8i-0925badx3_*+$)6sjo(%g&q'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+cloudinary.config(
+    cloud_name="dg9gqlrva",
+    api_key="957948429853469",
+    api_secret="XvUp2xjKj8RWOJH8t23EjkCbce4"
+)
+
 ALLOWED_HOSTS = []
 
 
@@ -32,6 +39,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'instagram',
+    'cloudinary',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -108,7 +116,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Nairobi'
 
 USE_I18N = True
 
