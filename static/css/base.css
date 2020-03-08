@@ -1,0 +1,23 @@
+.container {
+    font-family: 'Cabin', sans-serif;
+}
+.profile {
+    margin-top: 20px;
+}
+.prof-details {
+    margin-top: 20px;
+}
+.profile img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    height: 25vh;
+    border-radius: 50%;
+}
+.prof-details p {
+    font-size: 3vh;
+}
+.prof-details b {
+    font-size: 3vh;
+}

@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load bootstrap3 %}
+{% load static %}
 
 {% block content %}
     <div class="container">
@@ -9,15 +10,22 @@
             </div>
             <div class="col-md-3">
                 <div class="profile">
-                    <img src="{{user_profile.profile_pic.url}}" alt="loading image ...">
+                    {% if user_profile.profile_pic.url %}
+                        <img src="{{user_profile.profile_pic.url}}" alt="loading image ...">
+                    {% else %}
+                        <img src="{% static 'images/insta.png' %}" alt="loading image ...">
+                    {% endif %}
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="prof-details">
-                    <p>{{current_user.username}} &nbsp; <a href="{% url 'Editprofile' %}"><button class="btn">Edit Profile</button> </a> </p>
-                    <p> {{profile_images.count}} posts &nbsp; {{all_following.count}} following &nbsp; {{number}} followers</p>
+                    <b>{{current_user.username}}</b> &nbsp; <a href="{% url 'Editprofile' %}"><button class="btn btn-sm"><p>Edit Profile</p></button> </a>
+                    <p>{{image_count}} posts &nbsp; {{following_count}} following &nbsp; {{followers_count}} followers</p>
+                    <p><b>Bio</b></p>
                 </div>
             </div>
         </div>
+        <hr>
+
     </div>
 {% endblock %}
