@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 class Profile(models.Model):
     profile_pic = CloudinaryField('image', null=True)
     bio = models.TextField()
-    user = models.ManyToManyField(User)
+    user = models.ManyToManyField(User, null=True, blank=True)
 
     def __str__(self):
         return self.bio

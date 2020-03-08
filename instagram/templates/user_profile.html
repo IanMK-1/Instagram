@@ -23,7 +23,7 @@
             </div>
             <div class="col-md-4">
                 <div class="prof-details">
-                    <b>{{current_user.username}}</b> &nbsp; <a href="#"><button class="btn bg-primary"><p>Follow</p></button> </a>
+                    <b>{{specific_user.username}}</b> &nbsp; <a href="{% url 'Adduser' specific_user.id %}"><button class="btn bg-primary"><p>Follow</p></button> </a>
                     <p>{{image_count}} posts &nbsp; {{following_count}} following &nbsp; {{followers_count}} followers</p>
                     <p><b>Bio</b></p>
                     <p>{{user_profile.bio}}</p>

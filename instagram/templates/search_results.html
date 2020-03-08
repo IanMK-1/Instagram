@@ -15,20 +15,18 @@
                 {% for user in users %}
                     <div class="col-md-3">
                         <div class="searched_user">
-                            {% for user in user.profile_set.all %}
-                                {% if user.profile_pic.url %}
-                                    <img src="{{user.profile_pic.url}}" alt="loading image ...">
-                                {% else %}
-                                    <img src="{% static 'images/insta.png' %}" alt="loading image ...">
-                                {% endif %}
-                            {% endfor %}
+                            {% if user.profile_pic.url %}
+                                <img src="{{user.profile_pic.url}}" alt="loading image ...">
+                            {% else %}
+                                <img src="{% static 'images/insta.png' %}" alt="loading image ...">
+                            {% endif %}
                             <a href="{% url 'Follow_users' user.id %}"><p style="text-align: center"><b>Username:</b> &nbsp; {{user.username}}</p></a>
                         </div>
                     </div>
                 {% endfor %}
             {% else %}
                 <div class="col-md-12">
-                    <p>No users matched '{{search_item}}'</p>
+                    <h3>No users matched '{{search_item}}'</h3>
                 </div>
             {% endif %}
         </div>

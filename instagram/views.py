@@ -93,7 +93,7 @@ def search_results(request):
 
 def follow_users(request, id):
     try:
-        specific_user = User.objects.filter(id=id)
+        specific_user = User.objects.get(id=id)
         user_profile = Profile.objects.get(id=id)
         profile_images = Image.objects.filter(profile=user_profile).all()
         image_count = profile_images.count()
@@ -109,7 +109,6 @@ def follow_users(request, id):
                     else:
                         followers_count = 0
     except ObjectDoesNotExist:
-        specific_user = None
         profile_images = None
         user_profile = None
         all_following = None
@@ -118,6 +117,14 @@ def follow_users(request, id):
         following_count = 0
 
     return render(request, 'user_profile.html',
-                  {"user_profile": user_profile, "profile_images": profile_images, "current_user": specific_user,
+                  {"user_profile": user_profile, "profile_images": profile_images, "specific_user": specific_user,
                    "all_following": all_following, "followers_count": followers_count, "image_count": image_count,
                    "following_count": following_count})
+
+
+def add_user(request, id):
+    current_user = request.user
+    user = User.objects.get(id=id)
+    user_profile = Profile.objects.get(id=current_user.id)
+    user_profile.user.add(user)
+    return redirect('Follow_users', id)

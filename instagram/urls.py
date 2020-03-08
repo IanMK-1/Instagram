@@ -10,4 +10,5 @@ urlpatterns = [
     path('upload_images/', views.upload_images, name="Uploadimages"),
     path('search_results/', views.search_results, name="Searchresults"),
     re_path('follow_users/(\d+)/', views.follow_users, name="Follow_users"),
+    re_path('add_user/(\d+)/', views.add_user, name="Adduser"),
 ]
