@@ -11,8 +11,8 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 70%;
-    height: 25vh;
+    width: 80%;
+    height: 30vh;
     border-radius: 50%;
 }
 .prof-details p {
@@ -24,4 +24,11 @@
 .my-images img {
     width: 100%;
     height: 200px;
+    margin-bottom: 15px;
+}
+.navbar {
+    margin: 0px;
+}
+.icons {
+    margin-top: 9px;
 }
