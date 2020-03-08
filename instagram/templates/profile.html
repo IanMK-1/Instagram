@@ -14,7 +14,8 @@
             </div>
             <div class="col-md-4">
                 <div class="prof-details">
-                    <p>{{current_user.username}}  <a href="{% url 'Editprofile' %}"><button class="btn">Edit Profile</button> </a> </p>
+                    <p>{{current_user.username}} &nbsp; <a href="{% url 'Editprofile' %}"><button class="btn">Edit Profile</button> </a> </p>
+                    <p> {{profile_images.count}} posts &nbsp; {{all_following.count}} following &nbsp; {{number}} followers</p>
                 </div>
             </div>
         </div>
