@@ -37,7 +37,7 @@ class Image(models.Model):
     image_caption = models.CharField(max_length=50)
     likes = models.IntegerField(default=0)
     dislikes = models.IntegerField(default=0)
-    comments = models.TextField()
+    comments = models.TextField(null=True, blank=True)
     posted_on = models.DateTimeField(auto_now_add=True)
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
 

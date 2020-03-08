@@ -5,8 +5,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h3 style="text-align: center">Edit Profile</h3>
-                <form  action="{%url 'Editprofile'%}" method="post" enctype="multipart/form-data">
+                <h3 style="text-align: center">Upload Images</h3>
+                <form  action="{%url 'Uploadimages'%}" method="post" enctype="multipart/form-data">
                     {%csrf_token%}
 
                     {% bootstrap_form form %}

@@ -22,6 +22,8 @@
                     <b>{{current_user.username}}</b> &nbsp; <a href="{% url 'Editprofile' %}"><button class="btn btn-sm"><p>Edit Profile</p></button> </a>
                     <p>{{image_count}} posts &nbsp; {{following_count}} following &nbsp; {{followers_count}} followers</p>
                     <p><b>Bio</b></p>
+                    <p>{{user_profile.bio}}</p>
+                    <p><a href="{% url 'Uploadimages' %}"><button class="btn">Upload images</button> </a> </p>
                 </div>
             </div>
         </div>
@@ -29,9 +31,9 @@
         <div class="row">
             {% if profile_images %}
                 {% for profile_image in profile_images %}
-                    <div class="my-images">
-                        <div class="col-md-3">
-                            <img src="profile_image.image.url" alt="loading image...">
+                    <div class="col-md-3">
+                        <div class="my-images">
+                            <img src="{{profile_image.image.url}}" alt="loading image...">
                         </div>
                     </div>
                 {% endfor %}

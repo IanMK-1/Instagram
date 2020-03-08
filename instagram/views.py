@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Image, Profile
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
+from .forms import EditProfileForm, UploadUserImages
 
 
 # Create your views here.
@@ -17,7 +18,7 @@ def profile(request):
     try:
         if current_user.is_authenticated:
             user_profile = Profile.objects.get(id=current_user.id)
-            profile_images = Image.objects.filter(profile__id=current_user.id).all()
+            profile_images = Image.objects.filter(profile=user_profile).all()
             image_count = profile_images.count()
             all_following = user_profile.user.all()
             following_count = all_following.count()
@@ -41,8 +42,38 @@ def profile(request):
 
     return render(request, 'profile.html',
                   {"user_profile": user_profile, "profile_images": profile_images, "current_user": current_user,
-                   "all_following": all_following, "followers_count": followers_count, "image_count": image_count, "following_count": following_count})
+                   "all_following": all_following, "followers_count": followers_count, "image_count": image_count,
+                   "following_count": following_count})
 
 
+@login_required(login_url='/accounts/login/')
 def edit_profile(request):
-    return render(request, 'edit_profile.html')
+    if request.method == 'POST':
+        form = EditProfileForm(request.POST, request.FILES)
+        current_user = request.user
+        if form.is_valid():
+            bio = form.cleaned_data['bio']
+            Profile.update_profile_bio(current_user.id, bio)
+            return redirect('Profile')
+    else:
+        form = EditProfileForm()
+
+    return render(request, 'edit_profile.html', {"form": form})
+
+
+@login_required(login_url='/accounts/login/')
+def upload_images(request):
+    if request.method == 'POST':
+        form = UploadUserImages(request.POST, request.FILES)
+        current_user = request.user
+        if form.is_valid():
+            image = form.cleaned_data['image']
+            image_name = form.cleaned_data['image_name']
+            image_caption = form.cleaned_data['image_caption']
+            user_profile = Profile.objects.get(id=current_user.id)
+            user_images = Image(image=image, image_name=image_name, image_caption=image_caption, profile=user_profile)
+            user_images.save()
+    else:
+        form = UploadUserImages()
+
+    return render(request, 'upload_images.html', {"form": form})

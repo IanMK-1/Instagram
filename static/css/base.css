@@ -21,3 +21,7 @@
 .prof-details b {
     font-size: 3vh;
 }
+.my-images img {
+    width: 100%;
+    height: 200px;
+}
