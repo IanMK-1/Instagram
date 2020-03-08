@@ -77,3 +77,15 @@ def upload_images(request):
         form = UploadUserImages()
 
     return render(request, 'upload_images.html', {"form": form})
+
+
+def search_results(request):
+    try:
+        if 'search_user' in request.GET and request.GET["search_user"]:
+            search_term = request.GET.get("search_user")
+            searched_users = User.objects.filter(username__icontains=search_term)
+
+    except ObjectDoesNotExist:
+        searched_users = None
+
+    return render(request, 'search_results.html', {"users": searched_users, "search_item": search_term})

@@ -32,3 +32,11 @@
 .icons {
     margin-top: 9px;
 }
+.searched_user img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+    height: 10vh;
+    border-radius: 50%;
+}
