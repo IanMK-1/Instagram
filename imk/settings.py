@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import cloudinary
+from django.urls import reverse_lazy
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -30,6 +31,10 @@ cloudinary.config(
     api_key="957948429853469",
     api_secret="XvUp2xjKj8RWOJH8t23EjkCbce4"
 )
+
+LOGIN_REDIRECT_URL = reverse_lazy('Timeline')
+LOGOUT_REDIRECT_URL = reverse_lazy('login')
+REGISTER_REDIRECT_URL = reverse_lazy('Timeline')
 
 ALLOWED_HOSTS = []
 

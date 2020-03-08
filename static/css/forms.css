@@ -17,3 +17,8 @@
     font-family: 'Pacifico', cursive;
     font-size: 10vh;
 }
+.jumbotron {
+    margin-top: 15%;
+    text-align: center;
+    background-color: white;
+}
