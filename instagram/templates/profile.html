@@ -26,6 +26,20 @@
             </div>
         </div>
         <hr>
-
+        <div class="row">
+            {% if profile_images %}
+                {% for profile_image in profile_images %}
+                    <div class="my-images">
+                        <div class="col-md-3">
+                            <img src="profile_image.image.url" alt="loading image...">
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="col-md-12">
+                    <p style="text-align: center; font-size: 5vh">Please add some photos</p>
+                </div>
+            {% endif %}
+        </div>
     </div>
 {% endblock %}
