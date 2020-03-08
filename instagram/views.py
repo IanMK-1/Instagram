@@ -89,3 +89,35 @@ def search_results(request):
         searched_users = None
 
     return render(request, 'search_results.html', {"users": searched_users, "search_item": search_term})
+
+
+def follow_users(request, id):
+    try:
+        specific_user = User.objects.filter(id=id)
+        user_profile = Profile.objects.get(id=id)
+        profile_images = Image.objects.filter(profile=user_profile).all()
+        image_count = profile_images.count()
+        all_following = user_profile.user.all()
+        following_count = all_following.count()
+        users = User.objects.all()
+        followers_count = 0
+        for user in users:
+            for specific_user_profile in user.profile_set.all():
+                for following_user in specific_user_profile.user.all():
+                    if following_user.id == id:
+                        followers_count += 1
+                    else:
+                        followers_count = 0
+    except ObjectDoesNotExist:
+        specific_user = None
+        profile_images = None
+        user_profile = None
+        all_following = None
+        followers_count = 0
+        image_count = 0
+        following_count = 0
+
+    return render(request, 'user_profile.html',
+                  {"user_profile": user_profile, "profile_images": profile_images, "current_user": specific_user,
+                   "all_following": all_following, "followers_count": followers_count, "image_count": image_count,
+                   "following_count": following_count})

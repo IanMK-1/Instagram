@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% load static %}
+
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1">
+
+            </div>
+            <div class="col-md-3">
+                <div class="profile">
+                    {% if user_profile.profile_pic.url %}
+                        <img src="{{user_profile.profile_pic.url}}" alt="loading image ...">
+                    {% else %}
+                        <img src="{% static 'images/insta.png' %}" alt="loading image ...">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-md-1">
+
+            </div>
+            <div class="col-md-4">
+                <div class="prof-details">
+                    <b>{{current_user.username}}</b> &nbsp; <a href="#"><button class="btn bg-primary"><p>Follow</p></button> </a>
+                    <p>{{image_count}} posts &nbsp; {{following_count}} following &nbsp; {{followers_count}} followers</p>
+                    <p><b>Bio</b></p>
+                    <p>{{user_profile.bio}}</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            {% if profile_images %}
+                {% for profile_image in profile_images %}
+                    <div class="col-md-3">
+                        <div class="my-images">
+                            <img src="{{profile_image.image.url}}" alt="loading image...">
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="col-md-12">
+                    <p style="text-align: center; font-size: 5vh">This person has no images</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

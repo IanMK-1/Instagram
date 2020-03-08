@@ -17,12 +17,12 @@
                         <div class="searched_user">
                             {% for user in user.profile_set.all %}
                                 {% if user.profile_pic.url %}
-                                    <a href="{% url 'Followers' %}"><img src="{{user.profile_pic.url}}" alt="loading image ..."></a>
+                                    <img src="{{user.profile_pic.url}}" alt="loading image ...">
                                 {% else %}
-                                    <a href="{% url 'Followers' %}"><img src="{% static 'images/insta.png' %}" alt="loading image ..."></a>
+                                    <img src="{% static 'images/insta.png' %}" alt="loading image ...">
                                 {% endif %}
                             {% endfor %}
-                            <p style="text-align: center"><b>Username:</b> &nbsp; {{user.username}}</p>
+                            <a href="{% url 'Follow_users' user.id %}"><p style="text-align: center"><b>Username:</b> &nbsp; {{user.username}}</p></a>
                         </div>
                     </div>
                 {% endfor %}
