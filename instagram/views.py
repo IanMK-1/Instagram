@@ -16,4 +16,9 @@ def profile(request):
         user_profile = Profile.objects.filter(id=current_user.id)
         profile_images = Image.objects.filter(profile__id=current_user.id)
 
-    return render(request, 'profile.html', {"user_profile": user_profile, "profile_images": profile_images, "current_user": current_user})
+    return render(request, 'profile.html',
+                  {"user_profile": user_profile, "profile_images": profile_images, "current_user": current_user})
+
+
+def edit_profile(request):
+    return render(request, 'edit_profile.html')

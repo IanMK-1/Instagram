@@ -2,5 +2,21 @@
 {% load bootstrap3 %}
 
 {% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
 
+            </div>
+            <div class="col-md-3">
+                <div class="profile">
+                    <img src="{{user_profile.profile_pic.url}}" alt="loading image ...">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="prof-details">
+                    <p>{{current_user.username}}  <a href="{% url 'Editprofile' %}"><button class="btn">Edit Profile</button> </a> </p>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
