@@ -11,6 +11,7 @@ from .forms import EditProfileForm, UploadUserImages, CommentForm
 def timeline(request):
     current_user = request.user
     user_profile = Profile(id=current_user.id)
+    user_profile.save()
     profile_images = Image.objects.filter(profile=user_profile).all()
     if request.method == 'POST':
         form = CommentForm(request.POST, request.FILES)
@@ -86,7 +87,8 @@ def upload_images(request):
             image = form.cleaned_data['image']
             image_name = form.cleaned_data['image_name']
             image_caption = form.cleaned_data['image_caption']
-            user_profile = Profile.objects.get(id=current_user.id)
+            user_profile = Profile(id=current_user.id)
+            user_profile.save()
             user_images = Image(image=image, image_name=image_name, image_caption=image_caption, profile=user_profile)
             user_images.save()
     else:
@@ -111,6 +113,7 @@ def follow_users(request, id):
     try:
         specific_user = User.objects.get(id=id)
         user_profile = Profile.objects.get(id=id)
+        user_profile.save()
         profile_images = Image.objects.filter(profile=user_profile).all()
         image_count = profile_images.count()
         all_following = user_profile.user.all()
@@ -141,6 +144,7 @@ def follow_users(request, id):
 def add_user(request, id):
     current_user = request.user
     user = User.objects.get(id=id)
-    user_profile = Profile.objects.get(id=id)
+    user_profile = Profile(id=current_user.id)
+    user_profile.save()
     user_profile.user.add(user)
     return redirect('Follow_users', id)

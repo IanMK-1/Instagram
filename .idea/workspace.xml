@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="75f274cb-9f8e-4700-8bc0-b07c12a9a8ab" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/instagram/migrations/0008_auto_20200309_1335.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instagram/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/instagram/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/instagram/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/instagram/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
