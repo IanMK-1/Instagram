@@ -9,20 +9,25 @@ from .forms import EditProfileForm, UploadUserImages, CommentForm
 # Create your views here.
 @login_required(login_url='/accounts/login/')
 def timeline(request):
-    current_user = request.user
-    user_profile = Profile.objects.get(id=current_user.id)
-    profile_images = Image.objects.filter(profile=user_profile).all()
-    if request.method == 'POST':
-        form = CommentForm(request.POST, request.FILES)
-        if form.is_valid():
-            comments = form.cleaned_data['comments']
-            for image in profile_images:
-                spec_image = Image.objects.filter(id=image.id)
-                spec_image.update(comments=comments)
+    try:
+        current_user = request.user
+        user_profile = Profile.objects.get(id=current_user.id)
+        profile_images = Image.objects.filter(profile=user_profile).all()
+        if request.method == 'POST':
+            form = CommentForm(request.POST, request.FILES)
+            if form.is_valid():
+                comments = form.cleaned_data['comments']
+                for image in profile_images:
+                    spec_image = Image.objects.filter(id=image.id)
+                    spec_image.update(comments=comments)
 
-            return redirect('Timeline')
-    else:
-        form = CommentForm()
+                return redirect('Timeline')
+        else:
+            form = CommentForm()
+
+    except ObjectDoesNotExist:
+        profile_images = None
+        user_profile = None
 
     return render(request, 'timeline.html', {"profile_images": profile_images[::-1], "current_user": current_user,
                                              "user_profile": user_profile, "form": form})

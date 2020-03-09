@@ -35,7 +35,7 @@ class Image(models.Model):
     image = CloudinaryField('image', null=True)
     image_name = models.CharField(max_length=30)
     image_caption = models.CharField(max_length=50)
-    likes = models.IntegerField(default=0)
+    likes = models.PositiveIntegerField(default=0)
     dislikes = models.IntegerField(default=0)
     comments = models.CharField(max_length=500, null=True, blank=True)
     posted_on = models.DateTimeField(auto_now_add=True)

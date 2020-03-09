@@ -23,11 +23,11 @@
                             </li>
                             <li class="list-group-item"><img src="{{image.image.url}}" alt="loading image..."></li>
                             <li class="list-group-item" id="comments">
-                                <P>{{image.image_name}}</P>
+                                <p><b>{{image.image_name}}</b></p>
                                 <p>{{image.image_caption}}</p>
                                 <p>{{image.posted_on|timesince}}</p>
                                 <p>{{image.comments}}</p>
-                                <form  action="{%url 'Timeline'%}" method="post" enctype="multipart/form-data">
+                                <form  action="{%url 'Timeline' %}" method="post" enctype="multipart/form-data">
                                     {%csrf_token%}
 
                                     {% bootstrap_form form %}
@@ -36,6 +36,41 @@
                             </li>
                         {% endfor %}
                     </div>
+                        <div class="others">
+                            {% if user_profile %}
+                                {% for user in user_profile.user.all %}
+                                    {% for profile in user.profile_set.all%}
+                                        <li class="list-group-item">
+                                            <div class="image-icon">
+                                                {% if profile.profile_pic.url %}
+                                                <img src="{{profile.profile_pic.url}}" alt="loading image ..."> &nbsp; <b>{{user.username}}</b>
+                                                {% else %}
+                                                    <img src="{% static 'images/insta.png' %}" alt="loading image ..."> &nbsp; <b>{{user.username}}</b>
+                                                {% endif %}
+                                            </div>
+                                        </li>
+                                    {% endfor %}
+
+                                    {% for image in user.image_set.all %}
+                                            {% if image.image.url %}
+                                                <li class="list-group-item"><img src="{{image.image.url}}" alt="loading image..."></li>
+                                                <li class="list-group-item" id="comments1">
+                                                    <p><b>{{image.image_name}}</b></p>
+                                                    <p>{{image.image_caption}}</p>
+                                                    <p>{{image.posted_on|timesince}}</p>
+                                                    <p>{{image.comments}}</p>
+                                                    <form  action="{%url 'Timeline' %}" method="post" enctype="multipart/form-data">
+                                                        {%csrf_token%}
+
+                                                        {% bootstrap_form form %}
+                                                        <input type="submit" class="btn btn-default btn-sm" style="float: left" value="Post">
+                                                    </form>
+                                                </li>
+                                            {% endif %}
+                                    {% endfor %}
+                                {% endfor %}
+                            {% endif %}
+                        </div>
             </div>
         </div>
     </div>
