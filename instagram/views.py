@@ -29,7 +29,7 @@ def timeline(request):
         profile_images = None
         user_profile = None
 
-    return render(request, 'timeline.html', {"profile_images": profile_images[::-1], "current_user": current_user,
+    return render(request, 'timeline.html', {"profile_images": profile_images, "current_user": current_user,
                                              "user_profile": user_profile, "form": form})
 
 
