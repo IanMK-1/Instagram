@@ -35,6 +35,7 @@ def profile(request):
     try:
         if current_user.is_authenticated:
             user_profile = Profile(id=current_user.id)
+            user_profile.save()
             profile_images = Image.objects.filter(profile=user_profile).all()
             image_count = profile_images.count()
             all_following = user_profile.user.all()
@@ -70,7 +71,9 @@ def edit_profile(request):
         current_user = request.user
         if form.is_valid():
             bio = form.cleaned_data['bio']
-            Profile.update_profile_bio(current_user.id, bio)
+            user_profile = Profile(id=current_user.id)
+            user_profile.save()
+            Profile.update_profile_bio(user_profile.id, bio)
             return redirect('Profile')
     else:
         form = EditProfileForm()
