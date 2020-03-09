@@ -141,6 +141,6 @@ def follow_users(request, id):
 def add_user(request, id):
     current_user = request.user
     user = User.objects.get(id=id)
-    user_profile = Profile.objects.get(id=current_user.id)
+    user_profile = Profile.objects.get(id=id)
     user_profile.user.add(user)
     return redirect('Follow_users', id)
