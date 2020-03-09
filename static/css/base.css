@@ -68,8 +68,22 @@
 }
 #comments1 {
     padding-bottom: 40px;
-
+    margin-bottom: 40px;
 }
 .others {
     margin-top: 60px;
+    margin-bottom: 40px;
+}
+.others .image-icon img {
+    display: block;
+    width: 8%;
+    height: 5vh;
+    border-radius: 50%;
+    float: left;
+}
+.others img {
+    width: 100%;
+    height: 40%;
+    padding: 0px;
+    margin: 0px;
 }

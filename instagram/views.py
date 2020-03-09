@@ -12,6 +12,7 @@ def timeline(request):
     current_user = request.user
     user_profile = Profile(id=current_user.id)
     user_profile.save()
+    user_spec_profile = Profile.objects.get(id=current_user.id)
     profile_images = Image.objects.filter(profile=user_profile).all()
     if request.method == 'POST':
         form = CommentForm(request.POST, request.FILES)
@@ -26,7 +27,7 @@ def timeline(request):
         form = CommentForm()
 
     return render(request, 'timeline.html', {"profile_images": profile_images, "current_user": current_user,
-                                             "user_profile": user_profile, "form": form})
+                                             "user_profile": user_spec_profile, "form": form})
 
 
 @login_required(login_url='/accounts/login/')
@@ -34,8 +35,7 @@ def profile(request):
     current_user = request.user
     try:
         if current_user.is_authenticated:
-            user_profile = Profile(id=current_user.id)
-            user_profile.save()
+            user_profile = Profile.objects.get(id=current_user.id)
             profile_images = Image.objects.filter(profile=user_profile).all()
             image_count = profile_images.count()
             all_following = user_profile.user.all()
@@ -71,9 +71,8 @@ def edit_profile(request):
         current_user = request.user
         if form.is_valid():
             bio = form.cleaned_data['bio']
-            user_profile = Profile(id=current_user.id)
-            user_profile.save()
-            Profile.update_profile_bio(user_profile.id, bio)
+            Profile.objects.filter(id=current_user.id).update(bio=bio)
+
             return redirect('Profile')
     else:
         form = EditProfileForm()
@@ -90,8 +89,7 @@ def upload_images(request):
             image = form.cleaned_data['image']
             image_name = form.cleaned_data['image_name']
             image_caption = form.cleaned_data['image_caption']
-            user_profile = Profile(id=current_user.id)
-            user_profile.save()
+            user_profile = Profile.objects.get(id=current_user.id)
             user_images = Image(image=image, image_name=image_name, image_caption=image_caption, profile=user_profile)
             user_images.save()
     else:
