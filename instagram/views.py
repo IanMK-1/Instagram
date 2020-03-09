@@ -10,7 +10,7 @@ from .forms import EditProfileForm, UploadUserImages, CommentForm
 @login_required(login_url='/accounts/login/')
 def timeline(request):
     current_user = request.user
-    user_profile = Profile.objects.get(id=current_user.id)
+    user_profile = Profile(id=current_user.id)
     profile_images = Image.objects.filter(profile=user_profile).all()
     if request.method == 'POST':
         form = CommentForm(request.POST, request.FILES)
@@ -33,7 +33,7 @@ def profile(request):
     current_user = request.user
     try:
         if current_user.is_authenticated:
-            user_profile = Profile.objects.get(id=current_user.id)
+            user_profile = Profile(id=current_user.id)
             profile_images = Image.objects.filter(profile=user_profile).all()
             image_count = profile_images.count()
             all_following = user_profile.user.all()
