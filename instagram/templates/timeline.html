@@ -10,7 +10,8 @@
 
             </div>
             <div class="col-md-6">
-                    <div class="timeline-images">
+                <div class="timeline-images">
+                    {% if user_profile %}
                         {% for image in profile_images%}
                             <li class="list-group-item">
                                 <div class="image-icon">
@@ -70,7 +71,10 @@
                                     {% endfor %}
                                 {% endfor %}
                             {% endif %}
-                        </div>
+                    {% else %}
+                        <h3>You dont have a profile</h3>
+                    {% endif %}
+                </div>
             </div>
         </div>
     </div>
