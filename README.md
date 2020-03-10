@@ -32,6 +32,9 @@
 ### Link
 [Github](https://github.com/IanMK-1/Instagram)
 
+### Codebeat
+[![codebeat badge](https://codebeat.co/badges/a4230c01-eb87-48ab-b20a-b211780ba700)](https://codebeat.co/projects/github-com-ianmk-1-instagram-master)
+
 ### Contacts
 Email: iankimotho233@gmail.com
 
